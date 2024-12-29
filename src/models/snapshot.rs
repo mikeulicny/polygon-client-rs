@@ -162,23 +162,6 @@ pub struct GetOptionContractSnapshotResponse {
     pub results: Option<OptionContractSnapshot>
 }
 
-pub struct GetCryptoFullBookSnapshotParams {
-    pub ticker: String
-}
-
-pub struct GetCryptoFullBookSnapshotParamsBuilder(pub(crate) reqwest::RequestBuilder);
-
-impl GetCryptoFullBookSnapshotParamsBuilder {
-    impl_send_method!(GetCryptoFullBookSnapshotResponse);
-}
-
-#[derive(Deserialize, Debug, Clone)]
-pub struct GetCryptoFullBookSnapshotResponse{
-    #[serde(flatten)]
-    pub base_response: BaseResponse,
-    pub data: Option<FullBookSnapshot>
-}
-
 pub struct GetIndicesSnapshotParamsBuilder {
     pub(crate) request_builder: reqwest::RequestBuilder,
     pub(crate) ticker_any_of: String,
@@ -311,19 +294,6 @@ pub struct OrderBookQuote {
     pub price: Option<f64>,
     #[serde(rename = "x")]
     pub exchange_to_shares: Option<HashMap<String, f64>>
-}
-
-#[derive(Deserialize, Debug, Clone)]
-pub struct FullBookSnapshot {
-    #[serde(rename = "askCount")]
-    pub ask_count: Option<f64>,
-    pub asks: Option<OrderBookQuote>,
-    #[serde(rename = "bidCount")]
-    pub bid_count: Option<f64>,
-    pub bids: Option<OrderBookQuote>,
-    pub spread: Option<f64>,
-    pub ticker: Option<String>,
-    pub update: Option<String> // TODO: Nanos
 }
 
 #[derive(Deserialize, Debug, Clone)]

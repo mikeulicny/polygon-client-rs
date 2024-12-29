@@ -29,11 +29,6 @@ impl PolygonClient {
         snapshot::GetOptionContractSnapshotParamsBuilder(self.builder(Method::GET, &path))
     }
 
-    pub async fn get_crypto_full_book_snapshot(&self, ticker: &str) -> snapshot::GetCryptoFullBookSnapshotParamsBuilder {
-        let path = format!("/v2/snapshot/locale/global/markets/crypto/tickers/{ticker}/book");
-        snapshot::GetCryptoFullBookSnapshotParamsBuilder(self.builder(Method::GET, &path))
-    }
-
     pub async fn get_indices_snapshot(&self) -> snapshot::GetIndicesSnapshotParamsBuilder {
         let path = "/v3/snapshot/indicies";
         snapshot::GetIndicesSnapshotParamsBuilder{
