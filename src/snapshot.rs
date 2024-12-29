@@ -16,11 +16,14 @@ impl PolygonClient {
         snapshot::GetTickerSnapshotParamsBuilder(self.builder(Method::GET, &path))
     }
 
+    /// Get the most up-to-date market data for current top 20 gainers or losers of the day in the
+    /// stocks/equities markets.
     pub async fn get_gainers_losers_snapshot(&self, locale: MarketLocale, market_type: MarketType, direction: Direction) -> snapshot::GetGainersLosersSnapshotParamsBuilder {
         let path = format!("/v2/snapshot/locale/{locale}/markets/{market_type}/{direction}");
         snapshot::GetGainersLosersSnapshotParamsBuilder(self.builder(Method::GET, &path))
     }
 
+    /// Get the snapshot of an option contract for a stock equity.
     pub async fn get_option_contract_snapshot(&self, underlying_asset: &str, option_contract: &str) -> snapshot::GetOptionContractSnapshotParamsBuilder {
         let path = format!("/v3/snapshot/options/{underlying_asset}/{option_contract}");
         snapshot::GetOptionContractSnapshotParamsBuilder(self.builder(Method::GET, &path))
