@@ -15,11 +15,14 @@ impl PolygonClient {
         quotes::GetLastQuoteParamsBuilder(self.builder(Method::GET, &path))
     }
 
+    /// Get the last quote tick for a forex currency pair.
     pub fn get_last_forex_quote(&self, from: &str, to: &str) -> quotes::GetLastForexQuoteParamsBuilder {
         let path = format!("/v1/last_quote/currencies/{from}/{to}");
         quotes::GetLastForexQuoteParamsBuilder(self.builder(Method::GET, &path))
     }
 
+    /// Get currency conversions using the latest market conversion rates.
+    /// Note than you can convert in both directions. For example USD to CAD or CAD to USD.
     pub fn get_real_time_currency_conversion(&self, from: &str, to: &str) -> GetRealTimeCurrencyConversionParamsBuilder {
         let path = format!("/v1/conversion/{from}/{to}");
         quotes::GetRealTimeCurrencyConversionParamsBuilder(self.builder(Method::GET, &path))

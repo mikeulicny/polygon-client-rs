@@ -29,6 +29,7 @@ impl PolygonClient {
         snapshot::GetOptionContractSnapshotParamsBuilder(self.builder(Method::GET, &path))
     }
 
+    /// Get a Snapshot of indices data for said tickers.
     pub async fn get_indices_snapshot(&self) -> snapshot::GetIndicesSnapshotParamsBuilder {
         let path = "/v3/snapshot/indicies";
         snapshot::GetIndicesSnapshotParamsBuilder{
@@ -37,6 +38,7 @@ impl PolygonClient {
         }
     }
 
+    /// Get snapshots for assets of all types.
     pub async fn list_universal_snapshots(&self) -> snapshot::ListUniversalSnapshotParamsBuilder {
         let path = "/v3/snapshot";
         snapshot::ListUniversalSnapshotParamsBuilder{
