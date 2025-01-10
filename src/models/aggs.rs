@@ -2,7 +2,7 @@ use serde::Deserialize;
 use serde_with::{serde_as, TimestampMilliSeconds, formats::Strict};
 use chrono::{DateTime, Utc};
 use crate::BaseResponse;
-use crate::models::types::{Order, MarketLocale, MarketType, Timespan};
+use crate::models::types::Order;
 use crate::macros::{
     impl_limit_method,
     impl_order_method,

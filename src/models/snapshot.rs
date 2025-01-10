@@ -5,7 +5,7 @@ use crate::{BaseResponse, macros::impl_send_method};
 use crate::macros::impl_include_otc_method;
 use crate::models::summaries::Session;
 
-use super::types::{MarketLocale, MarketType, Direction, Comparator};
+use super::types::Comparator;
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct DaySnapshot {
